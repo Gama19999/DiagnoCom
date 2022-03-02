@@ -19,7 +19,7 @@
                   <Image url="@../images/5fa2ff16a732f.jpeg" />
                </image>
                <effect>
-                  <ColorAdjust brightness="-0.63" contrast="0.25" />
+                  <ColorAdjust brightness="-0.25" contrast="0.25" />
                </effect>
             </ImageView>
             <Rectangle arcHeight="200.0" arcWidth="70.0" fill="#ffffffb1" height="59.0" layoutX="32.0" layoutY="13.0" stroke="#002afc" strokeType="INSIDE" strokeWidth="3.0" width="340.0">
@@ -27,7 +27,7 @@
                   <ColorAdjust brightness="0.42" contrast="-0.42" />
                </effect>
             </Rectangle>
-            <Label layoutX="39.0" layoutY="31.0" style="-fx-font-family: serif; -fx-font-size: 22;" text="VERIFICACIÓN DE SEGURIDAD" />
+            <Label layoutX="133.0" layoutY="30.0" style="-fx-font-family: serif; -fx-font-size: 22;" text="DIAGNOCOM" />
             <Rectangle arcHeight="200.0" arcWidth="70.0" fill="#ffffffb1" height="39.0" layoutX="32.0" layoutY="107.0" stroke="#002afc" strokeType="INSIDE" strokeWidth="3.0" width="340.0">
                <effect>
                   <ColorAdjust brightness="0.42" contrast="-0.42" />
@@ -61,6 +61,11 @@
             <Label fx:id="info" layoutX="68.0" layoutY="358.0" style="-fx-font-family: serif; -fx-font-size: 20;" text="¡DATOS NO RECONOCIDOS!" />
             <TextField fx:id="usuario" alignment="CENTER" layoutX="53.0" layoutY="164.0" onMouseClicked="#usrPswrSelected" prefHeight="33.0" prefWidth="299.0" style="-fx-background-color: #c9c9c9b1; -fx-font-family: serif; -fx-font-size: 14;" />
             <TextField fx:id="contras" alignment="CENTER" layoutX="50.0" layoutY="286.0" onAction="#passwordActived" onMouseClicked="#usrPswrSelected" prefHeight="33.0" prefWidth="299.0" style="-fx-background-color: #c9c9c9b0; -fx-font-family: serif; -fx-font-size: 14;" />
+            <ImageView fitHeight="50.0" fitWidth="41.0" layoutX="299.0" layoutY="18.0" preserveRatio="true">
+               <image>
+                  <Image url="@../images/stethoscope-gff2c86148_1920.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

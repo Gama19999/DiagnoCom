@@ -15,25 +15,25 @@ public class LoginController {
     private Connection baseD;
     
     @FXML
-    TextField usuario;
+    private TextField usuario;
     
     @FXML
-    TextField contras;
+    private TextField contras;
     
     @FXML
-    Label info;
+    private Label info;
     
     @FXML
-    Button volver;
+    private Button volver;
     
     @FXML
-    Button registrar;
+    private Button registrar;
     
     @FXML
-    Button salir;
+    private Button salir;
     
     @FXML
-    Rectangle rectangle;
+    private Rectangle rectangle;
 
     @FXML
     private void volverPressed() throws IOException {
@@ -73,18 +73,18 @@ public class LoginController {
     }
     
     @FXML
-    private void registrarPressed() throws IOException {
+    public void registrarPressed() throws IOException {
         App.setRoot("register", 300, 300, "Registering");
     }
     
     @FXML
-    private void usrPswrSelected() {
+    public void usrPswrSelected() {
         rectangle.setVisible(false);
         info.setVisible(false);
     }
     
     @FXML
-    private void salirPressed() {
+    public void salirPressed() {
         System.exit(0);
     }
     

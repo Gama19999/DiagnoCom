@@ -19,7 +19,7 @@
                   <Image url="@../images/5fa2ff16a732f.jpeg" />
                </image>
                <effect>
-                  <ColorAdjust brightness="-0.63" contrast="0.25" />
+                  <ColorAdjust brightness="-0.25" contrast="0.25" />
                </effect>
             </ImageView>
             <Rectangle arcHeight="200.0" arcWidth="70.0" fill="#ffffffb1" height="59.0" layoutX="32.0" layoutY="13.0" stroke="#002afc" strokeType="INSIDE" strokeWidth="3.0" width="340.0">
@@ -27,13 +27,13 @@
                   <ColorAdjust brightness="0.42" contrast="-0.42" />
                </effect>
             </Rectangle>
-            <Label layoutX="39.0" layoutY="31.0" style="-fx-font-family: serif; -fx-font-size: 22;" text="VERIFICACIÓN DE SEGURIDAD" />
+            <Label layoutX="133.0" layoutY="30.0" style="-fx-font-family: serif; -fx-font-size: 22;" text="DIAGNOCOM" />
             <Rectangle arcHeight="200.0" arcWidth="70.0" fill="#ffffffb1" height="39.0" layoutX="32.0" layoutY="107.0" stroke="#002afc" strokeType="INSIDE" strokeWidth="3.0" width="340.0">
                <effect>
                   <ColorAdjust brightness="0.42" contrast="-0.42" />
                </effect>
             </Rectangle>
-            <Label layoutX="158.0" layoutY="115.0" style="-fx-font-family: serif; -fx-font-size: 20;" text="USUARIO" />
+            <Label layoutX="87.0" layoutY="115.0" style="-fx-font-family: serif; -fx-font-size: 20;" text="USUARIO A REGISTRAR" />
             <Rectangle arcHeight="200.0" arcWidth="70.0" fill="#ffffffb1" height="39.0" layoutX="30.0" layoutY="161.0" stroke="#00e1fa" strokeType="INSIDE" strokeWidth="3.0" width="340.0">
                <effect>
                   <ColorAdjust brightness="0.42" contrast="-0.42" />
@@ -44,25 +44,29 @@
                   <ColorAdjust brightness="0.42" contrast="-0.42" />
                </effect>
             </Rectangle>
-            <Label layoutX="135.0" layoutY="237.0" style="-fx-font-family: serif; -fx-font-size: 20;" text="CONTRASEÑA" />
+            <Label layoutX="64.0" layoutY="237.0" style="-fx-font-family: serif; -fx-font-size: 20;" text="CONTRASEÑA A REGISTRAR" />
             <Rectangle arcHeight="200.0" arcWidth="70.0" fill="#ffffffb0" height="39.0" layoutX="29.0" layoutY="283.0" stroke="#1a858ffc" strokeType="INSIDE" strokeWidth="3.0" width="340.0">
                <effect>
                   <ColorAdjust brightness="0.42" contrast="-0.42" />
                </effect>
             </Rectangle>
             <Button layoutX="29.0" layoutY="407.0" mnemonicParsing="false" prefWidth="100.0" style="-fx-font-family: serif; -fx-font-size: 14; -fx-background-color: #ffffffb1; -fx-border-radius: 90;" text="VOLVER" />
-            <Button layoutX="155.0" layoutY="407.0" mnemonicParsing="false" prefWidth="100.0" style="-fx-font-family: serif; -fx-font-size: 14; -fx-background-color: #ffffffb1; -fx-border-radius: 90;" text="REGISTRAR" />
-            <Button layoutX="276.0" layoutY="407.0" mnemonicParsing="false" prefWidth="100.0" style="-fx-font-family: serif; -fx-font-size: 14; -fx-background-color: #ffffffb1;" text="SALIR" />
+            <Button layoutX="155.0" layoutY="407.0" mnemonicParsing="false" prefWidth="100.0" style="-fx-font-family: serif; -fx-font-size: 14; -fx-background-color: #ffffffb1; -fx-border-radius: 90;" text="GUARDAR" />
+            <Button fx:id="salir" layoutX="276.0" layoutY="407.0" mnemonicParsing="false" onAction="#salirPressed" prefWidth="100.0" style="-fx-font-family: serif; -fx-font-size: 14; -fx-background-color: #ffffffb1;" text="SALIR" />
             <Rectangle arcHeight="200.0" arcWidth="70.0" fill="#ffffffb1" height="39.0" layoutX="29.0" layoutY="350.0" stroke="#fa0000" strokeType="INSIDE" strokeWidth="3.0" width="340.0">
                <effect>
                   <ColorAdjust brightness="0.42" contrast="-0.42" />
                </effect>
             </Rectangle>
-            <Label layoutX="133.0" layoutY="358.0" style="-fx-font-family: serif; -fx-font-size: 20;" text="CONTRASEÑA" />
-            <TextField layoutX="53.0" layoutY="164.0" prefHeight="33.0" prefWidth="299.0" style="-fx-background-color: #c9c9c9b1;" />
-            <TextField layoutX="50.0" layoutY="286.0" prefHeight="33.0" prefWidth="299.0" style="-fx-background-color: #c9c9c9b0;" />
+            <Label layoutX="96.0" layoutY="358.0" style="-fx-font-family: serif; -fx-font-size: 20;" text="¡DATOS GUARDADOS!" />
+            <TextField alignment="CENTER" layoutX="53.0" layoutY="164.0" onMouseClicked="#usrPswrSelected" prefHeight="33.0" prefWidth="299.0" style="-fx-background-color: #c9c9c9b1; -fx-font-family: serif; -fx-font-size: 14;" />
+            <TextField alignment="CENTER" layoutX="50.0" layoutY="286.0" prefHeight="33.0" prefWidth="299.0" style="-fx-background-color: #c9c9c9b0; -fx-font-family: serif; -fx-font-size: 14;" />
+            <ImageView fitHeight="50.0" fitWidth="41.0" layoutX="299.0" layoutY="18.0" preserveRatio="true">
+               <image>
+                  <Image url="@../images/stethoscope-gff2c86148_1920.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>
 </VBox>
-

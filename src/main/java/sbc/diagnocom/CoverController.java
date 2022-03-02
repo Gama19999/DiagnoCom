@@ -10,21 +10,21 @@ import javafx.scene.control.Label;
 public class CoverController {
     
     @FXML
-    Label fecha;
+    private Label fecha;
     
     @FXML
-    Button sistemaEx;
+    private Button sistemaEx;
     
     @FXML
-    Button metodo;
+    private Button metodo;
 
     @FXML
-    private void switchToLogin() throws IOException {
+    public void switchToLogin() throws IOException {
         App.setRoot("login", 400, 480, "Login");
     }
     
     @FXML
-    private void switchToMethod() {
+    public void switchToMethod() {
         
     }
     
