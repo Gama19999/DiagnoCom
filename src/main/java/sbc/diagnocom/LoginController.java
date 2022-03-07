@@ -41,7 +41,7 @@ public class LoginController {
     }
     
     @FXML
-    private void passwordActived() throws SQLException {
+    private void passwordActived() throws SQLException, IOException {
         Statement st;
         ResultSet rs;
         String user = usuario.getText();
@@ -58,23 +58,32 @@ public class LoginController {
         baseD = con.getCNX();
         
         st = baseD.createStatement();
-        rs = st.executeQuery("select id_user, password from credencial where id_user=" +  user);
+        rs = st.executeQuery("select * from credencial where id_user=" +  user);
         
-        while (rs.next()) {
-            if (!rs.getString(2).equals(pswrd)) {
-                rectangle.setVisible(true);
-                info.setText("¡DATOS NO RECONOCIDOS!");
-                info.setVisible(true);
-            }
+        if (rs.next()) {
+            do {
+                if (!rs.getString(2).equals(pswrd)) {
+                    rectangle.setVisible(true);
+                    info.setText("¡DATOS NO RECONOCIDOS!");
+                    info.setVisible(true);
+                } else {
+                    sistemaExperto();
+                }
+            } while (rs.next());
+        } else {
+            rectangle.setVisible(true);
+            info.setText("¡REGISTRARSE!");
+            info.setVisible(true);
         }
         
         rs.close();
         st.close();
+        con.closeCNX();
     }
     
     @FXML
     public void registrarPressed() throws IOException {
-        App.setRoot("register", 300, 300, "Registering");
+        App.setRoot("register", 400, 480, "Registering");
     }
     
     @FXML
@@ -86,6 +95,10 @@ public class LoginController {
     @FXML
     public void salirPressed() {
         System.exit(0);
+    }
+    
+    private void sistemaExperto() throws IOException {
+        App.setRoot("se1F", 800, 500, "LUGAR DE LA AFECCIÓN");
     }
     
     @FXML

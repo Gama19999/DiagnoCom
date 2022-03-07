@@ -1,5 +1,9 @@
 package sbc.diagnocom;
 
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -7,6 +11,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.shape.Rectangle;
 
 public class RegisterController {
+    private String userString;
+    private String passwordString;
+    private Connection baseD;
+    
     @FXML
     private TextField usuario;
     
@@ -20,23 +28,44 @@ public class RegisterController {
     private Rectangle rectangle;
 
     @FXML
-    private Button gauardar;
+    private Button guardar;
 
     @FXML
     private Button salir;
 
     @FXML
     private Button volver;
-
     
-    @FXML
-    public void passwordActived() {
-
-    }
 
     @FXML
-    public void registrarPressed() {
-
+    public void guardarPressed() throws SQLException {
+        Statement st;        
+        userString = usuario.getText();
+        passwordString = contras.getText();
+        
+        if (userString.isBlank() || userString.isEmpty() || passwordString.isBlank() || passwordString.isEmpty()) {
+            rectangle.setVisible(true);
+            info.setText("¡USUARIO O CONTRASEÑA VACIOS!");
+            info.setVisible(true);
+            return;
+        }
+        
+        var cnx = new Conexion();
+        baseD = cnx.getCNX();
+        
+        StringBuilder s = new StringBuilder("insert into credencial values (");
+        s.append(Integer.valueOf(userString)).append(", '").append(passwordString);
+        s.append("') ");
+        
+        st = baseD.createStatement();
+        st.executeUpdate(new String(s));
+        
+        st.close();
+        cnx.closeCNX();
+        
+        info.setText("¡DATOS GUARDADOS!");
+        rectangle.setVisible(true);
+        info.setVisible(true);
     }
 
     @FXML
@@ -46,16 +75,18 @@ public class RegisterController {
 
     @FXML
     public void usrPswrSelected() {
-
+        rectangle.setVisible(false);
+        info.setVisible(false);
     }
 
     @FXML
-    public void volverPressed() {
-
+    public void volverPressed() throws IOException {
+        App.setRoot("login", 400, 480, "Login");
     }
     
     @FXML
     void initialize() {
-        
+        rectangle.setVisible(false);
+        info.setVisible(false);
     }
 }
