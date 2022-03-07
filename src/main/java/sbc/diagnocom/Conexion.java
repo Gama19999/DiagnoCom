@@ -9,7 +9,7 @@ public class Conexion {
     private final Connection CNX;
     
     Conexion() throws SQLException {
-        CNX = DriverManager.getConnection(url, "root", "31delfinZYTO!");
+        CNX = DriverManager.getConnection(url, "root", "");
     }
     
     public Connection getCNX() {
