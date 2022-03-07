@@ -3,5 +3,5 @@
 
 
 # Unnecesary Folders
-.target
-.test
+/target
+/src/test
