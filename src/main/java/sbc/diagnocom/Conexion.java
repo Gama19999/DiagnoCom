@@ -9,7 +9,7 @@ public class Conexion {
     private final Connection CNX;
     
     Conexion() throws SQLException {
-        CNX = DriverManager.getConnection(url, "root", "");
+        CNX = DriverManager.getConnection(url, "external", "12345");
     }
     
     public Connection getCNX() {

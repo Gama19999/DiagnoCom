@@ -25,10 +25,15 @@ public class DiagnoComBR {
     RuleVariable presionArterialAlta;
     RuleVariable fiebre;
     RuleVariable zumbidoOidos;
-    
-    // Declaracion variables de REGLAS (9-14)
-    RuleVariable tos;
+    RuleVariable nauseas;
     RuleVariable dolorGarganta;
+    RuleVariable dolorOido;
+    
+    // Declaracion variables de REGLAS (9-17)
+    RuleVariable tos;
+    RuleVariable estornudos;
+    RuleVariable dolorArticulaciones;
+    RuleVariable dolorEspalda;
     RuleVariable dolorPecho;
     RuleVariable escurrimientoNasal;
     RuleVariable fatiga;
@@ -36,23 +41,22 @@ public class DiagnoComBR {
     RuleVariable dolorCorporal;
     RuleVariable dificultadRespiratoria;
     
-    // Declaracion variables de REGLAS (15-20)
+    // Declaracion variables de REGLAS (18-22)
     RuleVariable dolorAbdominal;
     RuleVariable evacuacionesConstantes;
-    RuleVariable nauseas;
     RuleVariable acidezEstomacal;
     RuleVariable vomito;
     RuleVariable hemorragiaRectal;
-    RuleVariable gases;
+    RuleVariable diarrea;
+    RuleVariable evacuacionesConDolor;
     
-    // Declaracion variables de REGLAS (21-24)
-    RuleVariable dolorEspalda;
-
-    // Declaracion variables de REGLAS (25)
+    // Declaracion variables de REGLAS (23-26)
+    
+    // Declaracion variables de REGLAS (27)
     RuleVariable dolorAlOrinar;
     RuleVariable sangradoAlOrinar;
     
-    // Declaracion variables de REGLAS (26)
+    // Declaracion variables de REGLAS (28)
     RuleVariable pielEnrogecida;
     RuleVariable inflamacionZona;
     RuleVariable altaSensibilidadZona;
@@ -78,7 +82,7 @@ public class DiagnoComBR {
     }
     
     public String getD_Cabeza(String afeccion, String dolCabeza, String presArtAlta,
-            String fiebre, String zumbOidos) {
+            String fiebre, String zumbOidos, String nauseas, String dolGarg, String dolOido) {
         
         starterBR();
         
@@ -87,6 +91,9 @@ public class DiagnoComBR {
         presionArterialAlta.setValue(presArtAlta);
         this.fiebre.setValue(fiebre);
         zumbidoOidos.setValue(zumbOidos);
+        this.nauseas.setValue(nauseas);
+        dolorGarganta.setValue(dolGarg);
+        dolorOido.setValue(dolOido);
         
         br.forwardChain();
         nameHecho = enfermedad.getValue();
@@ -96,7 +103,8 @@ public class DiagnoComBR {
     
     public String getD_Respiratorio(String tos, String fiebre, String dolGarg,
             String dolPecho, String escurrNas, String fatiga, String congNas,
-            String dolCabeza, String dolCorpo, String dificResp) {
+            String dolCabeza, String dolCorpo, String dificResp, String estorn,
+            String doloArtic, String doloEspal) {
         
         starterBR();
         
@@ -110,6 +118,9 @@ public class DiagnoComBR {
         dolorCabeza.setValue(dolCabeza);
         dolorCorporal.setValue(dolCorpo);
         dificultadRespiratoria.setValue(dificResp);
+        estornudos.setValue(estorn);
+        dolorArticulaciones.setValue(doloArtic);
+        dolorEspalda.setValue(doloEspal);
         
         br.forwardChain();
         nameHecho = enfermedad.getValue();
@@ -117,19 +128,85 @@ public class DiagnoComBR {
         return nameHecho;
     }
     
-    public String getD_Digestivo() {
+    public String getD_Digestivo(String fiebre, String doloAbdo, String evaConst,
+            String nauseas, String acidEsto, String vomito, String fatiga,
+            String hemoRec, String diarrea, String evaConDolo, String doloPecho) {
+        
+        starterBR();
+        
+        this.fiebre.setValue(fiebre);
+        dolorAbdominal.setValue(doloAbdo);
+        evacuacionesConstantes.setValue(evaConst);
+        this.nauseas.setValue(nauseas);
+        acidezEstomacal.setValue(acidEsto);
+        this.vomito.setValue(vomito);
+        this.fatiga.setValue(fatiga);
+        hemorragiaRectal.setValue(hemoRec);
+        this.diarrea.setValue(diarrea);
+        evacuacionesConDolor.setValue(evaConDolo);
+        dolorPecho.setValue(doloPecho);
+        
+        br.forwardChain();
+        nameHecho = enfermedad.getValue();
+        
         return nameHecho;
     }
     
-    public String getD_Interno() {
+    public String getD_Interno(String fiebre, String doloAbdo, String nauseas,
+            String vomito, String tos, String dolPech, String acidEst,
+            String dolEspa, String difRes, String fatiga, String evaConst,
+            String dolGarg, String hemoRec, String diarrea) {
+        
+        starterBR();
+        
+        this.fiebre.setValue(fiebre);
+        dolorAbdominal.setValue(doloAbdo);
+        this.nauseas.setValue(nauseas);
+        this.vomito.setValue(vomito);
+        this.tos.setValue(tos);
+        dolorPecho.setValue(dolPech);
+        acidezEstomacal.setValue(acidEst);
+        dolorEspalda.setValue(dolEspa);
+        dificultadRespiratoria.setValue(difRes);
+        this.fatiga.setValue(fatiga);
+        evacuacionesConstantes.setValue(evaConst);
+        dolorGarganta.setValue(dolGarg);
+        hemorragiaRectal.setValue(hemoRec);
+        this.diarrea.setValue(diarrea);
+        
+        br.forwardChain();
+        nameHecho = enfermedad.getValue();
+        
         return nameHecho;
     }
     
-    public String getD_Urinario() {
+    public String getD_Urinario(String nauseas, String doloAOri, String sangAOri,
+            String doloEsp, String fiebre) {
+        
+        starterBR();
+        
+        this.nauseas.setValue(nauseas);
+        dolorAlOrinar.setValue(doloAOri);
+        sangradoAlOrinar.setValue(sangAOri);
+        dolorEspalda.setValue(doloEsp);
+        this.fiebre.setValue(fiebre);
+        
+        br.forwardChain();
+        nameHecho = enfermedad.getValue();
+        
         return nameHecho;
     }
     
-    public String getD_Cutaneo() {
+    public String getD_Cutaneo(String pielEnr, String inflama, String altaSensi) {
+        starterBR();
+        
+        pielEnrogecida.setValue(pielEnr);
+        inflamacionZona.setValue(inflama);
+        altaSensibilidadZona.setValue(altaSensi);
+        
+        br.forwardChain();
+        nameHecho = enfermedad.getValue();
+        
         return nameHecho;
     }
     
@@ -150,9 +227,14 @@ public class DiagnoComBR {
         presionArterialAlta = new RuleVariable(br, "PresionArterialAlta");
         fiebre = new RuleVariable(br, "Fiebre");
         zumbidoOidos = new RuleVariable(br, "ZumbidoOidos");
+        nauseas = new RuleVariable(br, "Nauseas");
+        dolorGarganta = new RuleVariable(br, "DolorGarganta");
+        dolorOido = new RuleVariable(br, "DolorOido");
         
         tos = new RuleVariable(br, "Tos");
-        dolorGarganta = new RuleVariable(br, "DolorGarganta");
+        estornudos = new RuleVariable(br, "Estornudos");
+        dolorArticulaciones = new RuleVariable(br, "DolorArticulaciones");
+        dolorEspalda = new RuleVariable(br, "DolorEspalda");
         dolorPecho = new RuleVariable(br, "DolorPecho");
         escurrimientoNasal = new RuleVariable(br, "EscurrimientoNasal");
         fatiga = new RuleVariable(br, "Fatiga");
@@ -162,13 +244,11 @@ public class DiagnoComBR {
         
         dolorAbdominal = new RuleVariable(br, "DolorAbdominal");
         evacuacionesConstantes = new RuleVariable(br, "EvacuacionesConstantes");
-        nauseas = new RuleVariable(br, "Nauseas");
         acidezEstomacal = new RuleVariable(br, "AcidezEstomacal");
         vomito = new RuleVariable(br, "Vomito");
         hemorragiaRectal = new RuleVariable(br, "HemorragiaRectal");
-        gases = new RuleVariable(br, "Gases");
-        
-        dolorEspalda = new RuleVariable(br, "DolorEspalda");
+        diarrea = new RuleVariable(br, "Diarrea");
+        evacuacionesConDolor = new RuleVariable(br, "EvacuacionesConDolor");
         
         dolorAlOrinar = new RuleVariable(br, "DolorAlOrinar");
         sangradoAlOrinar = new RuleVariable(br, "SangradoAlOrinar");
@@ -180,7 +260,6 @@ public class DiagnoComBR {
         // Instancias de CONSECUENTES de regla
         afeccion = new RuleVariable(br, "Afeccion");
         enfermedad = new RuleVariable(br, "Enfermedad");
-        
         
         // Definicion de operadores logicos (condicionales)
         Condition igual = new Condition("=");
@@ -242,30 +321,39 @@ public class DiagnoComBR {
                     new Clause(dolorCabeza, igual, "si"),
                     new Clause(presionArterialAlta, igual, "si"),
                     new Clause(fiebre, igual, "no"),
-                    new Clause(zumbidoOidos, igual, "si")},
+                    new Clause(zumbidoOidos, igual, "si"),
+                    new Clause(nauseas, igual, "si"),
+                    new Clause(dolorGarganta, igual, "no"),
+                    new Clause(dolorOido, igual, "no")},
                 new Clause(enfermedad, igual, "MIGRANIA"));
-        Rule infeccionOido = new Rule(br, "INFECCIONOIDO",
+        Rule infeccionOido = new Rule(br, "INFECCION DE OIDO",
                 new Clause[]{new Clause(afeccion, igual, "D.CABEZA"),
                     new Clause(dolorCabeza, igual, "no"),
                     new Clause(presionArterialAlta, igual, "no"),
                     new Clause(fiebre, igual, "si"),
-                    new Clause(zumbidoOidos, igual, "si")},
-                new Clause(enfermedad, igual, "INFECCIONOIDO"));
+                    new Clause(zumbidoOidos, igual, "si"),
+                    new Clause(nauseas, igual, "no"),
+                    new Clause(dolorGarganta, igual, "si"),
+                    new Clause(dolorOido, igual, "si")},
+                new Clause(enfermedad, igual, "INFECCION DE OIDO"));
         
         // ENFERMEDAD CON D.RESPIRATORIO
-        Rule gripeComun = new Rule(br, "GRIPECOMUN",
+        Rule gripeComun = new Rule(br, "GRIPE COMUN",
                 new Clause[]{new Clause(afeccion, igual, "D.RESPIRATORIO"),
                     new Clause(tos, igual, "si"),
                     new Clause(fiebre, igual, "si"),
                     new Clause(dolorGarganta, igual, "si"),
                     new Clause(dolorPecho, igual, "no"),
-                    new Clause(escurrimientoNasal, igual, "no"),
-                    new Clause(fatiga, igual, "no"),
-                    new Clause(congestionNasal, igual, "no"),
-                    new Clause(dolorCabeza, igual, "no"),
-                    new Clause(dolorCorporal, igual, "no"),
-                    new Clause(dificultadRespiratoria, igual, "no")},
-                new Clause(enfermedad, igual, "GRIPECOMUN"));
+                    new Clause(escurrimientoNasal, igual, "si"),
+                    new Clause(fatiga, igual, "si"),
+                    new Clause(congestionNasal, igual, "si"),
+                    new Clause(dolorCabeza, igual, "si"),
+                    new Clause(dolorCorporal, igual, "si"),
+                    new Clause(dificultadRespiratoria, igual, "no"),
+                    new Clause(estornudos, igual, "si"),
+                    new Clause(dolorArticulaciones, igual, "si"),
+                    new Clause(dolorEspalda, igual, "si")},
+                new Clause(enfermedad, igual, "GRIPE COMUN"));
         Rule bronquitis = new Rule(br, "BRONQUITIS",
                 new Clause[]{new Clause(afeccion, igual, "D.RESPIRATORIO"),
                     new Clause(tos, igual, "si"),
@@ -277,9 +365,12 @@ public class DiagnoComBR {
                     new Clause(congestionNasal, igual, "no"),
                     new Clause(dolorCabeza, igual, "no"),
                     new Clause(dolorCorporal, igual, "no"),
-                    new Clause(dificultadRespiratoria, igual, "no")},
+                    new Clause(dificultadRespiratoria, igual, "si"),
+                    new Clause(estornudos, igual, "no"),
+                    new Clause(dolorArticulaciones, igual, "no"),
+                    new Clause(dolorEspalda, igual, "si")},
                 new Clause(enfermedad, igual, "BRONQUITIS"));
-        Rule tosConFlema = new Rule(br, "TOSCONFLEMA",
+        Rule tosConFlema = new Rule(br, "TOS CON FLEMA",
                 new Clause[]{new Clause(afeccion, igual, "D.RESPIRATORIO"),
                     new Clause(tos, igual, "si"),
                     new Clause(fiebre, igual, "no"),
@@ -290,34 +381,59 @@ public class DiagnoComBR {
                     new Clause(congestionNasal, igual, "si"),
                     new Clause(dolorCabeza, igual, "no"),
                     new Clause(dolorCorporal, igual, "no"),
-                    new Clause(dificultadRespiratoria, igual, "no")},
-                new Clause(enfermedad, igual, "TOSCONFLEMA"));
+                    new Clause(dificultadRespiratoria, igual, "no"),
+                    new Clause(estornudos, igual, "no"),
+                    new Clause(dolorArticulaciones, igual, "no"),
+                    new Clause(dolorEspalda, igual, "no")},
+                new Clause(enfermedad, igual, "TOS CON FLEMA"));
         Rule sinusitis = new Rule(br, "SINUSITIS",
                 new Clause[]{new Clause(afeccion, igual, "D.RESPIRATORIO"),
-                    new Clause(tos, igual, "si"),
+                    new Clause(tos, igual, "no"),
                     new Clause(fiebre, igual, "no"),
                     new Clause(dolorGarganta, igual, "si"),
                     new Clause(dolorPecho, igual, "no"),
-                    new Clause(escurrimientoNasal, igual, "no"),
+                    new Clause(escurrimientoNasal, igual, "si"),
                     new Clause(fatiga, igual, "no"),
                     new Clause(congestionNasal, igual, "si"),
                     new Clause(dolorCabeza, igual, "si"),
                     new Clause(dolorCorporal, igual, "no"),
-                    new Clause(dificultadRespiratoria, igual, "no")},
+                    new Clause(dificultadRespiratoria, igual, "no"),
+                    new Clause(estornudos, igual, "si"),
+                    new Clause(dolorArticulaciones, igual, "no"),
+                    new Clause(dolorEspalda, igual, "no")},
                 new Clause(enfermedad, igual, "SINUSITIS"));
         Rule influenza = new Rule(br, "INFLUENZA",
                 new Clause[]{new Clause(afeccion, igual, "D.RESPIRATORIO"),
-                    new Clause(tos, igual, "no"),
+                    new Clause(tos, igual, "si"),
                     new Clause(fiebre, igual, "si"),
                     new Clause(dolorGarganta, igual, "si"),
                     new Clause(dolorPecho, igual, "no"),
-                    new Clause(escurrimientoNasal, igual, "no"),
+                    new Clause(escurrimientoNasal, igual, "si"),
+                    new Clause(fatiga, igual, "si"),
+                    new Clause(congestionNasal, igual, "si"),
+                    new Clause(dolorCabeza, igual, "si"),
+                    new Clause(dolorCorporal, igual, "si"),
+                    new Clause(dificultadRespiratoria, igual, "si"),
+                    new Clause(estornudos, igual, "si"),
+                    new Clause(dolorArticulaciones, igual, "si"),
+                    new Clause(dolorEspalda, igual, "si")},
+                new Clause(enfermedad, igual, "INFLUENZA"));
+        Rule sinusitisBacteriana = new Rule(br, "SINUSITIS BACTERIANA",
+                new Clause[]{new Clause(afeccion, igual, "D.RESPIRATORIO"),
+                    new Clause(tos, igual, "si"),
+                    new Clause(fiebre, igual, "no"),
+                    new Clause(dolorGarganta, igual, "si"),
+                    new Clause(dolorPecho, igual, "no"),
+                    new Clause(escurrimientoNasal, igual, "si"),
                     new Clause(fatiga, igual, "no"),
                     new Clause(congestionNasal, igual, "si"),
-                    new Clause(dolorCabeza, igual, "no"),
-                    new Clause(dolorCorporal, igual, "si"),
-                    new Clause(dificultadRespiratoria, igual, "no")},
-                new Clause(enfermedad, igual, "INFLUENZA"));
+                    new Clause(dolorCabeza, igual, "si"),
+                    new Clause(dolorCorporal, igual, "no"),
+                    new Clause(dificultadRespiratoria, igual, "no"),
+                    new Clause(estornudos, igual, "si"),
+                    new Clause(dolorArticulaciones, igual, "no"),
+                    new Clause(dolorEspalda, igual, "no")},
+                new Clause(enfermedad, igual, "SINUSITIS BACERIANA"));
         Rule neumonia = new Rule(br, "NEUMONIA",
                 new Clause[]{new Clause(afeccion, igual, "D.RESPIRATORIO"),
                     new Clause(tos, igual, "si"),
@@ -329,34 +445,59 @@ public class DiagnoComBR {
                     new Clause(congestionNasal, igual, "no"),
                     new Clause(dolorCabeza, igual, "si"),
                     new Clause(dolorCorporal, igual, "si"),
-                    new Clause(dificultadRespiratoria, igual, "si")},
+                    new Clause(dificultadRespiratoria, igual, "si"),
+                    new Clause(estornudos, igual, "no"),
+                    new Clause(dolorArticulaciones, igual, "si"),
+                    new Clause(dolorEspalda, igual, "si")},
                 new Clause(enfermedad, igual, "NEUMONIA"));
+        Rule fibrosisPulmonar = new Rule(br, "FIBROSIS PULMONAR",
+                new Clause[]{new Clause(afeccion, igual, "D.RESPIRATORIO"),
+                    new Clause(tos, igual, "si"),
+                    new Clause(fiebre, igual, "no"),
+                    new Clause(dolorGarganta, igual, "no"),
+                    new Clause(dolorPecho, igual, "no"),
+                    new Clause(escurrimientoNasal, igual, "no"),
+                    new Clause(fatiga, igual, "si"),
+                    new Clause(congestionNasal, igual, "no"),
+                    new Clause(dolorCabeza, igual, "no"),
+                    new Clause(dolorCorporal, igual, "si"),
+                    new Clause(dificultadRespiratoria, igual, "si"),
+                    new Clause(estornudos, igual, "no"),
+                    new Clause(dolorArticulaciones, igual, "si"),
+                    new Clause(dolorEspalda, igual, "si")},
+                new Clause(enfermedad, igual, "FIBROSIS PULMONAR"));
+        Rule bronquiolitis = new Rule(br, "BRONQUIOLITIS",
+                new Clause[]{new Clause(afeccion, igual, "D.RESPIRATORIO"),
+                    new Clause(tos, igual, "si"),
+                    new Clause(fiebre, igual, "no"),
+                    new Clause(dolorGarganta, igual, "no"),
+                    new Clause(dolorPecho, igual, "no"),
+                    new Clause(escurrimientoNasal, igual, "no"),
+                    new Clause(fatiga, igual, "no"),
+                    new Clause(congestionNasal, igual, "no"),
+                    new Clause(dolorCabeza, igual, "si"),
+                    new Clause(dolorCorporal, igual, "no"),
+                    new Clause(dificultadRespiratoria, igual, "si"),
+                    new Clause(estornudos, igual, "no"),
+                    new Clause(dolorArticulaciones, igual, "no"),
+                    new Clause(dolorEspalda, igual, "no")},
+                new Clause(enfermedad, igual, "BRONQUIOLITIS"));
         
         // ENFERMEDAD CON D.DIGESTIVO
         Rule infeccionEstomago = new Rule(br, "INFECCIONESTOMAGO",
                 new Clause[]{new Clause(afeccion, igual, "D.DIGESTIVO"),
                     new Clause(fiebre, igual, "si"),
                     new Clause(dolorAbdominal, igual, "si"),
-                    new Clause(evacuacionesConstantes, igual, "no"),
-                    new Clause(nauseas, igual, "no"),
+                    new Clause(evacuacionesConstantes, igual, "si"),
+                    new Clause(nauseas, igual, "si"),
                     new Clause(acidezEstomacal, igual, "no"),
                     new Clause(vomito, igual, "si"),
                     new Clause(fatiga, igual, "no"),
                     new Clause(hemorragiaRectal, igual, "no"),
-                    new Clause(gases, igual, "no")},
+                    new Clause(diarrea, igual, "si"),
+                    new Clause(evacuacionesConDolor, igual, "no"),
+                    new Clause(dolorPecho, igual, "no")},
                 new Clause(enfermedad, igual, "INFECCIONESTOMAGO"));
-        Rule diarrea = new Rule(br, "DIARREA",
-                new Clause[]{new Clause(afeccion, igual, "D.DIGESTIVO"),
-                    new Clause(fiebre, igual, "no"),
-                    new Clause(dolorAbdominal, igual, "si"),
-                    new Clause(evacuacionesConstantes, igual, "si"),
-                    new Clause(nauseas, igual, "no"),
-                    new Clause(acidezEstomacal, igual, "no"),
-                    new Clause(vomito, igual, "no"),
-                    new Clause(fatiga, igual, "no"),
-                    new Clause(hemorragiaRectal, igual, "no"),
-                    new Clause(gases, igual, "si")},
-                new Clause(enfermedad, igual, "DIARREA"));
         Rule estrenimiento = new Rule(br, "ESTRENIMIENTO",
                 new Clause[]{new Clause(afeccion, igual, "D.DIGESTIVO"),
                     new Clause(fiebre, igual, "no"),
@@ -367,7 +508,9 @@ public class DiagnoComBR {
                     new Clause(vomito, igual, "no"),
                     new Clause(fatiga, igual, "no"),
                     new Clause(hemorragiaRectal, igual, "no"),
-                    new Clause(gases, igual, "no")},
+                    new Clause(diarrea, igual, "no"),
+                    new Clause(evacuacionesConDolor, igual, "si"),
+                    new Clause(dolorPecho, igual, "no")},
                 new Clause(enfermedad, igual, "ESTRENIMIENTO"));
         Rule indigestion = new Rule(br, "INDIGESTION",
                 new Clause[]{new Clause(afeccion, igual, "D.DIGESTIVO"),
@@ -379,7 +522,9 @@ public class DiagnoComBR {
                     new Clause(vomito, igual, "no"),
                     new Clause(fatiga, igual, "no"),
                     new Clause(hemorragiaRectal, igual, "no"),
-                    new Clause(gases, igual, "no")},
+                    new Clause(diarrea, igual, "no"),
+                    new Clause(evacuacionesConDolor, igual, "no"),
+                    new Clause(dolorPecho, igual, "no")},
                 new Clause(enfermedad, igual, "INDIGESTION"));
         Rule gastritis = new Rule(br, "GASTRITIS",
                 new Clause[]{new Clause(afeccion, igual, "D.DIGESTIVO"),
@@ -388,22 +533,26 @@ public class DiagnoComBR {
                     new Clause(evacuacionesConstantes, igual, "no"),
                     new Clause(nauseas, igual, "no"),
                     new Clause(acidezEstomacal, igual, "si"),
-                    new Clause(vomito, igual, "no"),
+                    new Clause(vomito, igual, "si"),
                     new Clause(fatiga, igual, "no"),
-                    new Clause(hemorragiaRectal, igual, "no"),
-                    new Clause(gases, igual, "no")},
+                    new Clause(hemorragiaRectal, igual, "si"),
+                    new Clause(diarrea, igual, "no"),
+                    new Clause(evacuacionesConDolor, igual, "si"),
+                    new Clause(dolorPecho, igual, "si")},
                 new Clause(enfermedad, igual, "GASTRITIS"));
         Rule colitis = new Rule(br, "COLITIS",
                 new Clause[]{new Clause(afeccion, igual, "D.DIGESTIVO"),
-                    new Clause(fiebre, igual, "si"),
+                    new Clause(fiebre, igual, "no"),
                     new Clause(dolorAbdominal, igual, "si"),
                     new Clause(evacuacionesConstantes, igual, "no"),
                     new Clause(nauseas, igual, "no"),
                     new Clause(acidezEstomacal, igual, "no"),
                     new Clause(vomito, igual, "no"),
-                    new Clause(fatiga, igual, "si"),
+                    new Clause(fatiga, igual, "no"),
                     new Clause(hemorragiaRectal, igual, "si"),
-                    new Clause(gases, igual, "si")},
+                    new Clause(diarrea, igual, "si"),
+                    new Clause(evacuacionesConDolor, igual, "no"),
+                    new Clause(dolorPecho, igual, "no")},
                 new Clause(enfermedad, igual, "COLITIS"));
         
         // ENFERMEDAD CON D.INTERNO
@@ -418,46 +567,62 @@ public class DiagnoComBR {
                     new Clause(acidezEstomacal, igual, "no"),
                     new Clause(dolorEspalda, igual, "no"),
                     new Clause(dificultadRespiratoria, igual, "no"),
-                    new Clause(fatiga, igual, "no")},
+                    new Clause(fatiga, igual, "no"),
+                    new Clause(evacuacionesConstantes, igual, "si"),
+                    new Clause(dolorGarganta, igual, "no"),
+                    new Clause(hemorragiaRectal, igual, "no"),
+                    new Clause(diarrea, igual, "no")},
                 new Clause(enfermedad, igual, "APENDICITIS"));
         Rule esofagitis = new Rule(br, "ESOFAGITIS",
                 new Clause[]{new Clause(afeccion, igual, "D.INTERNO"),
                     new Clause(fiebre, igual, "no"),
                     new Clause(dolorAbdominal, igual, "si"),
-                    new Clause(nauseas, igual, "no"),
+                    new Clause(nauseas, igual, "si"),
                     new Clause(vomito, igual, "si"),
-                    new Clause(tos, igual, "si"),
+                    new Clause(tos, igual, "no"),
                     new Clause(dolorPecho, igual, "si"),
                     new Clause(acidezEstomacal, igual, "si"),
                     new Clause(dolorEspalda, igual, "no"),
                     new Clause(dificultadRespiratoria, igual, "no"),
-                    new Clause(fatiga, igual, "no")},
+                    new Clause(fatiga, igual, "no"),
+                    new Clause(evacuacionesConstantes, igual, "no"),
+                    new Clause(dolorGarganta, igual, "si"),
+                    new Clause(hemorragiaRectal, igual, "no"),
+                    new Clause(diarrea, igual, "no")},
                 new Clause(enfermedad, igual, "ESOFAGITIS"));
         Rule pancreatitis = new Rule(br, "PANCREATITIS",
                 new Clause[]{new Clause(afeccion, igual, "D.INTERNO"),
-                    new Clause(fiebre, igual, "si"),
+                    new Clause(fiebre, igual, "no"),
                     new Clause(dolorAbdominal, igual, "si"),
-                    new Clause(nauseas, igual, "no"),
+                    new Clause(nauseas, igual, "si"),
                     new Clause(vomito, igual, "si"),
                     new Clause(tos, igual, "no"),
                     new Clause(dolorPecho, igual, "no"),
                     new Clause(acidezEstomacal, igual, "no"),
                     new Clause(dolorEspalda, igual, "si"),
                     new Clause(dificultadRespiratoria, igual, "no"),
-                    new Clause(fatiga, igual, "no")},
+                    new Clause(fatiga, igual, "no"),
+                    new Clause(evacuacionesConstantes, igual, "no"),
+                    new Clause(dolorGarganta, igual, "no"),
+                    new Clause(hemorragiaRectal, igual, "si"),
+                    new Clause(diarrea, igual, "si")},
                 new Clause(enfermedad, igual, "PANCREATITIS"));
         Rule anemia = new Rule(br, "ANEMIA",
                 new Clause[]{new Clause(afeccion, igual, "D.INTERNO"),
                     new Clause(fiebre, igual, "no"),
                     new Clause(dolorAbdominal, igual, "no"),
                     new Clause(nauseas, igual, "no"),
-                    new Clause(vomito, igual, "no"),
+                    new Clause(vomito, igual, "si"),
                     new Clause(tos, igual, "no"),
                     new Clause(dolorPecho, igual, "no"),
                     new Clause(acidezEstomacal, igual, "no"),
                     new Clause(dolorEspalda, igual, "no"),
-                    new Clause(dificultadRespiratoria, igual, "si"),
-                    new Clause(fatiga, igual, "si")},
+                    new Clause(dificultadRespiratoria, igual, "no"),
+                    new Clause(fatiga, igual, "si"),
+                    new Clause(evacuacionesConstantes, igual, "no"),
+                    new Clause(dolorGarganta, igual, "no"),
+                    new Clause(hemorragiaRectal, igual, "no"),
+                    new Clause(diarrea, igual, "no")},
                 new Clause(enfermedad, igual, "ANEMIA"));
         
         // ENFERMEDAD CON D.URINARIO
@@ -466,7 +631,8 @@ public class DiagnoComBR {
                     new Clause(nauseas, igual, "si"),
                     new Clause(dolorAlOrinar, igual, "si"),
                     new Clause(sangradoAlOrinar, igual, "si"),
-                    new Clause(dolorEspalda, igual, "si")},
+                    new Clause(dolorEspalda, igual, "si"),
+                    new Clause(fiebre, igual, "si")},
                 new Clause(enfermedad, igual, "INFECCIONURINARIA"));
         
         // ENFERMEDAD CON D.CUTANEO
