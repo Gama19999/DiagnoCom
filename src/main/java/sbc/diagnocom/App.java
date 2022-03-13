@@ -7,11 +7,14 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Stack;
 
 /**
  * JavaFX App
  */
 public class App extends Application {
+    protected static final Stack encadenamientos = new Stack();
+    protected static final DiagnoComBR br = new DiagnoComBR();
 
     private static Scene scene;
 
