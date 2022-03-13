@@ -106,6 +106,9 @@ public class SE2FController {
             var s = new StringBuilder("Por favor presione el botón \"SIGUIENTE\"");
             s.append(" o limpie las celdas\npara responder a diferentes sintomas.");
             s.append("\nLuego presione el boton \"RESULTADO\"");
+            
+            info.setText(s.toString());
+            info.setVisible(true);
             return;
         }
         
