@@ -104,7 +104,7 @@ public class SE2FController {
     private void encadenarPressed() {
         if (App.encadenamientos.size() == 2) {
             var s = new StringBuilder("Por favor presione el botón \"SIGUIENTE\"");
-            s.append(" o limpie las celdas\npara responder a diferentes sintomas.");
+            s.append(" o limpie las celdas para responder a diferentes\nsintomas.");
             s.append("\nLuego presione el boton \"RESULTADO\"");
             
             info.setText(s.toString());
@@ -222,17 +222,22 @@ public class SE2FController {
     
     @FXML
     private void reiniciarPressed() throws IOException {
-        App.setRoot("se1F", 800, 500, "LUGAR DE LA AFECCIÓN");
+        App.setRoot("se1F", 840, 580, "LUGAR DE LA AFECCIÓN");
         App.encadenamientos.removeAllElements();
     }
     
     @FXML
     private void limpiarCeldasPressed() {
-        checkboxes.forEach(i -> i.setSelected(false));
+        checkboxes.forEach(i -> {
+            if (!Objects.isNull(i)) i.setSelected(false);
+        });
+        
+        info.setText("");
+        info.setVisible(false);
         resultado.setText("");
         resultado.setVisible(false);
         
-        if (!(App.encadenamientos.size() < 2)) App.encadenamientos.pop();
+        if (App.encadenamientos.size() == 2) App.encadenamientos.pop();
     }
     
     @FXML

@@ -600,7 +600,7 @@ public class DiagnoComBR {
                     new Clause(evacuacionesConDolor, igual, "si"),
                     new Clause(dolorPecho, igual, "no")},
                 new Clause(enfermedad, igual, "ESTREÑIMIENTO"));
-        Rule indigestion = new Rule(br, "INDIGESTION",
+        Rule indigestion = new Rule(br, "INDIGESTIÓN",
                 new Clause[]{new Clause(afeccion, igual, "D.DIGESTIVO"),
                     new Clause(fiebre, igual, "no"),
                     new Clause(dolorAbdominal, igual, "si"),
@@ -613,7 +613,7 @@ public class DiagnoComBR {
                     new Clause(diarrea, igual, "no"),
                     new Clause(evacuacionesConDolor, igual, "no"),
                     new Clause(dolorPecho, igual, "no")},
-                new Clause(enfermedad, igual, "INDIGESTION"));
+                new Clause(enfermedad, igual, "INDIGESTIÓN"));
         Rule gastritis = new Rule(br, "GASTRITIS",
                 new Clause[]{new Clause(afeccion, igual, "D.DIGESTIVO"),
                     new Clause(fiebre, igual, "no"),

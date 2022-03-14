@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.PasswordField;
 import javafx.scene.shape.Rectangle;
 
 public class LoginController {
@@ -16,19 +17,16 @@ public class LoginController {
     
     @FXML
     private TextField usuario;
-    
     @FXML
-    private TextField contras;
+    private PasswordField contras;
     
     @FXML
     private Label info;
     
     @FXML
     private Button volver;
-    
     @FXML
     private Button registrar;
-    
     @FXML
     private Button salir;
     
@@ -98,7 +96,7 @@ public class LoginController {
     }
     
     private void sistemaExperto() throws IOException {
-        App.setRoot("se1F", 800, 500, "LUGAR DE LA AFECCIÓN");
+        App.setRoot("se1F", 840, 580, "LUGAR DE LA AFECCIÓN");
     }
     
     @FXML

@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
@@ -58,14 +59,14 @@
                   <ColorAdjust brightness="0.42" contrast="-0.42" />
                </effect>
             </Rectangle>
-            <Label fx:id="info" layoutX="68.0" layoutY="358.0" style="-fx-font-family: serif; -fx-font-size: 20; -fx-font-style: italic;" text="¡DATOS NO RECONOCIDOS!" />
+            <Label fx:id="info" layoutX="68.0" layoutY="358.0" style="-fx-font-family: serif; -fx-font-size: 20; -fx-font-style: italic;" text="¡DATOS NO RECONOCIDOS!" textAlignment="CENTER" />
             <TextField fx:id="usuario" alignment="CENTER" layoutX="53.0" layoutY="164.0" onMouseClicked="#usrPswrSelected" prefHeight="33.0" prefWidth="299.0" promptText="SOLO NÚMEROS" style="-fx-background-color: #ffffff4f; -fx-font-family: serif; -fx-font-size: 14; -fx-font-weight: 700;" />
-            <TextField fx:id="contras" alignment="CENTER" layoutX="50.0" layoutY="286.0" onAction="#passwordActived" onMouseClicked="#usrPswrSelected" prefHeight="33.0" prefWidth="299.0" promptText="SOLO LETRAS" style="-fx-background-color: #ffffff4f; -fx-font-family: serif; -fx-font-size: 14; -fx-font-weight: 700;" />
             <ImageView fitHeight="50.0" fitWidth="41.0" layoutX="299.0" layoutY="18.0" preserveRatio="true">
                <image>
                   <Image url="@../images/stethoscope-gff2c86148_1920.png" />
                </image>
             </ImageView>
+            <PasswordField fx:id="contras" alignment="CENTER" layoutX="62.0" layoutY="286.0" onAction="#passwordActived" onMouseClicked="#usrPswrSelected" prefHeight="33.0" prefWidth="287.0" promptText=". . . . ." style="-fx-background-color: #ffffff4f; -fx-font-family: serif; -fx-font-size: 14; -fx-font-weight: 700;" />
          </children>
       </AnchorPane>
    </children>

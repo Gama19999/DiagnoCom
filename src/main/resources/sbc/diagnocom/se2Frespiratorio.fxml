@@ -2,21 +2,88 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox alignment="CENTER" prefHeight="500.0" prefWidth="700.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sbc.diagnocom.SE2FController">
    <children>
       <AnchorPane prefHeight="500.0" prefWidth="700.0">
          <children>
-            <ImageView fitHeight="500.0" fitWidth="800.0" />
-            <Button fx:id="showResult" layoutX="136.0" layoutY="436.0" mnemonicParsing="false" onAction="#encadenar" text="RESULTADO" />
-            <Button fx:id="next" layoutX="240.0" layoutY="436.0" mnemonicParsing="false" onAction="#nextPressed" text="SIGUIENTE" />
-            <Button fx:id="salir" layoutX="446.0" layoutY="436.0" mnemonicParsing="false" onAction="#salirPressed" text="SALIR" />
-            <Label fx:id="resultado" layoutX="418.0" layoutY="260.0" text="RESULTADO" />
-            <Button fx:id="reiniciar" layoutX="341.0" layoutY="436.0" mnemonicParsing="false" onAction="#reiniciarPressed" text="REINICIAR" />
+            <ImageView fitHeight="500.0" fitWidth="800.0">
+               <image>
+                  <Image url="@../images/fondo_oficial.png" />
+               </image></ImageView>
+            <Button fx:id="encadenar" layoutX="30.0" layoutY="461.0" mnemonicParsing="false" onAction="#encadenarPressed" prefWidth="130.0" style="-fx-border-color: blue; -fx-border-radius: 15; -fx-border-width: 2; -fx-background-color: none;" text="RESULTADO">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <font>
+                  <Font name="Gabriola" size="19.0" />
+               </font>
+               <padding>
+                  <Insets top="-0.5" />
+               </padding></Button>
+            <Button fx:id="next" layoutX="187.0" layoutY="461.0" mnemonicParsing="false" onAction="#nextPressed" prefWidth="130.0" style="-fx-border-color: blue; -fx-border-radius: 15; -fx-border-width: 2; -fx-background-color: none;" text="SIGUIENTE">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <font>
+                  <Font name="Gabriola" size="19.0" />
+               </font>
+               <padding>
+                  <Insets top="-0.5" />
+               </padding></Button>
+            <Button fx:id="salir" layoutX="656.0" layoutY="461.0" mnemonicParsing="false" onAction="#salirPressed" prefWidth="130.0" style="-fx-border-color: blue; -fx-border-radius: 15; -fx-border-width: 2; -fx-background-color: none;" text="SALIR">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <font>
+                  <Font name="Gabriola" size="19.0" />
+               </font>
+               <padding>
+                  <Insets top="-0.5" />
+               </padding></Button>
+            <Label fx:id="resultado" layoutX="440.0" layoutY="219.0" prefHeight="77.0" prefWidth="287.0" style="-fx-font-family: &quot;Comic Sans MS&quot;; -fx-font-weight: bold;" text="RESULTADO" textAlignment="JUSTIFY" wrapText="true" />
+            <Button fx:id="reiniciar" layoutX="345.0" layoutY="461.0" mnemonicParsing="false" onAction="#reiniciarPressed" prefWidth="130.0" style="-fx-border-color: blue; -fx-border-radius: 15; -fx-border-width: 2; -fx-background-color: none;" text="REINICIAR">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <font>
+                  <Font name="Gabriola" size="19.0" />
+               </font>
+               <padding>
+                  <Insets top="-0.5" />
+               </padding></Button>
+            <Label layoutX="309.0" layoutY="14.0" style="-fx-font-family: serif; -fx-font-size: 25; -fx-font-weight: bold;" text="AFECCIÓN RESPIRATORIA" />
+            <Label fx:id="info" layoutX="440.0" layoutY="103.0" prefHeight="77.0" prefWidth="287.0" style="-fx-font-family: &quot;Comic Sans MS&quot;; -fx-font-weight: bold;" text="INFO" textAlignment="JUSTIFY" wrapText="true" />
+            <Button fx:id="limpiarCeldas" layoutX="500.0" layoutY="461.0" mnemonicParsing="false" onAction="#limpiarCeldasPressed" prefWidth="130.0" style="-fx-border-color: blue; -fx-border-radius: 15; -fx-border-width: 2; -fx-background-color: none;" text="LIMPIAR">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <font>
+                  <Font name="Gabriola" size="19.0" />
+               </font>
+               <padding>
+                  <Insets top="-0.5" />
+               </padding></Button>
+            <CheckBox fx:id="dolorEspalda" layoutX="86.0" layoutY="408.0" mnemonicParsing="false" style="-fx-font-family: roboto; -fx-font-weight: bold; -fx-font-size: 16; -fx-font-style: italic;" text="¿Tiene dolor de espalda?" />
+            <CheckBox fx:id="dolorArticu" layoutX="86.0" layoutY="378.0" mnemonicParsing="false" style="-fx-font-family: roboto; -fx-font-weight: bold; -fx-font-size: 16; -fx-font-style: italic;" text="¿Tiene dolor en las articulaciones?" />
+            <CheckBox fx:id="estornudos" layoutX="86.0" layoutY="348.0" mnemonicParsing="false" style="-fx-font-family: roboto; -fx-font-weight: bold; -fx-font-size: 16; -fx-font-style: italic;" text="¿Tiene estornudos?" />
+            <CheckBox fx:id="dificRespir" layoutX="86.0" layoutY="318.0" mnemonicParsing="false" style="-fx-font-family: roboto; -fx-font-weight: bold; -fx-font-size: 16; -fx-font-style: italic;" text="¿Tiene dificultad respiratoria?" />
+            <CheckBox fx:id="dolorCorpor" layoutX="86.0" layoutY="288.0" mnemonicParsing="false" style="-fx-font-family: roboto; -fx-font-weight: bold; -fx-font-size: 16; -fx-font-style: italic;" text="¿Tiene dolor corporal?" />
+            <CheckBox fx:id="dolorCabeza" layoutX="86.0" layoutY="258.0" mnemonicParsing="false" style="-fx-font-family: roboto; -fx-font-weight: bold; -fx-font-size: 16; -fx-font-style: italic;" text="¿Tiene dolor de cabeza?" />
+            <CheckBox fx:id="congestNasal" layoutX="86.0" layoutY="228.0" mnemonicParsing="false" style="-fx-font-family: roboto; -fx-font-weight: bold; -fx-font-size: 16; -fx-font-style: italic;" text="¿Tiene congestión nasal?" />
+            <CheckBox fx:id="fatiga" layoutX="86.0" layoutY="198.0" mnemonicParsing="false" style="-fx-font-family: roboto; -fx-font-weight: bold; -fx-font-size: 16; -fx-font-style: italic;" text="¿Tiene fatiga?" />
+            <CheckBox fx:id="escurrNasal" layoutX="86.0" layoutY="168.0" mnemonicParsing="false" style="-fx-font-family: roboto; -fx-font-weight: bold; -fx-font-size: 16; -fx-font-style: italic;" text="¿Tiene escurrimiento nasal?" />
+            <CheckBox fx:id="dolorPecho" layoutX="86.0" layoutY="138.0" mnemonicParsing="false" style="-fx-font-family: roboto; -fx-font-weight: bold; -fx-font-size: 16; -fx-font-style: italic;" text="¿Tiene dolor de pecho?" />
+            <CheckBox fx:id="dolorGarganta" layoutX="86.0" layoutY="108.0" mnemonicParsing="false" style="-fx-font-family: roboto; -fx-font-weight: bold; -fx-font-size: 16; -fx-font-style: italic;" text="¿Tiene dolor de garganta?" />
+            <CheckBox fx:id="fiebre" layoutX="86.0" layoutY="78.0" mnemonicParsing="false" style="-fx-font-family: roboto; -fx-font-weight: bold; -fx-font-size: 16; -fx-font-style: italic;" text="¿Tiene fiebre?" />
+            <CheckBox fx:id="tos" layoutX="86.0" layoutY="48.0" mnemonicParsing="false" style="-fx-font-family: roboto; -fx-font-weight: bold; -fx-font-size: 16; -fx-font-style: italic;" text="¿Tiene tos?" />
          </children>
       </AnchorPane>
    </children>
