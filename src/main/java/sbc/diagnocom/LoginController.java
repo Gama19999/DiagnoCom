@@ -96,7 +96,7 @@ public class LoginController {
     }
     
     private void sistemaExperto() throws IOException {
-        App.setRoot("se1F", 840, 580, "LUGAR DE LA AFECCIÓN");
+        App.setRoot("se1F", 816, 540, "LUGAR DE LA AFECCIÓN");
     }
     
     @FXML

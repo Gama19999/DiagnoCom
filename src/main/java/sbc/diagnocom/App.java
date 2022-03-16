@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Stack;
+import javafx.scene.image.Image;
 
 /**
  * JavaFX App
@@ -21,6 +22,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("cover"), 800, 500);
+        stage.getIcons().add(new Image("https://cdn.pixabay.com/photo/2019/11/06/05/47/stethoscope-4605241_1280.png"));
         stage.setTitle("DiagnoCom");
         stage.setScene(scene);
         stage.setResizable(false);

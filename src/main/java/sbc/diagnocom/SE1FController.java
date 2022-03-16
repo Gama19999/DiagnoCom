@@ -76,12 +76,12 @@ public class SE1FController {
         
         String frame = App.encadenamientos.peek().toString();
         switch (frame) {
-            case "D.CABEZA" -> App.setRoot("se2Fcabeza", 840, 580, "ENFERMEDAD EN LA CABEZA");
-            case "D.RESPIRATORIO" -> App.setRoot("se2Frespiratorio", 840, 580, "ENFERMEDAD RESPIRATORIA");
-            case "D.DIGESTIVO" -> App.setRoot("se2Fdigestivo", 840, 580, "ENFERMEDAD DIGESTIVA");
-            case "D.INTERNO" -> App.setRoot("se2Finterno", 840, 580, "ENFERMEDAD INTERNA");
-            case "D.URINARIO" -> App.setRoot("se2Furinario", 840, 580, "ENFERMEDAD URINARIA");
-            case "D.CUTANEO" -> App.setRoot("se2Fcutaneo", 840, 580, "ENFERMEDAD CUTÁNEA");
+            case "D.CABEZA" -> App.setRoot("se2Fcabeza", 816, 540, "ENFERMEDAD EN LA CABEZA");
+            case "D.RESPIRATORIO" -> App.setRoot("se2Frespiratorio", 816, 540, "ENFERMEDAD RESPIRATORIA");
+            case "D.DIGESTIVO" -> App.setRoot("se2Fdigestivo", 816, 540, "ENFERMEDAD DIGESTIVA");
+            case "D.INTERNO" -> App.setRoot("se2Finterno", 816, 540, "ENFERMEDAD INTERNA");
+            case "D.URINARIO" -> App.setRoot("se2Furinario", 816, 540, "ENFERMEDAD URINARIA");
+            case "D.CUTANEO" -> App.setRoot("se2Fcutaneo", 816, 540, "ENFERMEDAD CUTÁNEA");
         }
     }
     

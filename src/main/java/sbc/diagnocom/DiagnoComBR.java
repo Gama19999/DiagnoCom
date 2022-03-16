@@ -521,7 +521,7 @@ public class DiagnoComBR {
                     new Clause(estornudos, igual, "si"),
                     new Clause(dolorArticulaciones, igual, "no"),
                     new Clause(dolorEspalda, igual, "no")},
-                new Clause(enfermedad, igual, "SINUSITIS BACERIANA"));
+                new Clause(enfermedad, igual, "SINUSITIS BACTERIANA"));
         Rule neumonia = new Rule(br, "NEUMONIA",
                 new Clause[]{new Clause(afeccion, igual, "D.RESPIRATORIO"),
                     new Clause(tos, igual, "si"),
