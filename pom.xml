@@ -27,9 +27,12 @@
             <type>jar</type>
         </dependency>
         <dependency>
-            <groupId>Rule</groupId>
-            <artifactId>Rule</artifactId>
+            <groupId>rule</groupId>
+            <artifactId>rule</artifactId>
             <version>1</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/rule.jar</systemPath>
+            <type>jar</type>
         </dependency>
     </dependencies>
     <build>
