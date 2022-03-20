@@ -1,6 +1,6 @@
 CREATE DATABASE  IF NOT EXISTS `diagnocom` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 
-CREATE USER 'external'@'localhost' IDENTIFIED BY '1234';
+CREATE USER 'external'@'localhost' IDENTIFIED BY '12345';
 GRANT SELECT, INSERT ON `diagnocom`.* TO 'external'@'localhost';
 
 USE `diagnocom`;

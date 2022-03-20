@@ -112,90 +112,78 @@ public class SE2FController {
             return;
         }
         
-        String afeccion = App.encadenamientos.peek().toString();
+        String afeccion = App.encadenamientos.peek();
         String enfermedad = "";
         
         info.setText("");
         info.setVisible(false);
         
         switch(afeccion) {
-            case "D.CABEZA" -> {
-                enfermedad = App.br.getD_Cabeza(
-                        afeccion, dolorCabeza.isSelected() ? "si" : "no",
-                        presionArtAlta.isSelected() ? "si" : "no",
-                        fiebre.isSelected() ? "si" : "no",
-                        zumbidoOidos.isSelected() ? "si" : "no",
-                        nauseas.isSelected() ? "si" : "no",
-                        dolorGarganta.isSelected() ? "si" : "no",
-                        dolorOido.isSelected() ? "si" : "no"
-                );
-            }
-            case "D.RESPIRATORIO" -> {
-                enfermedad = App.br.getD_Respiratorio(
-                        afeccion, tos.isSelected() ? "si" : "no",
-                        fiebre.isSelected() ? "si" : "no",
-                        dolorGarganta.isSelected() ? "si" : "no",
-                        dolorPecho.isSelected() ? "si" : "no",
-                        escurrNasal.isSelected() ? "si" : "no",
-                        fatiga.isSelected() ? "si" : "no",
-                        congestNasal.isSelected() ? "si" : "no",
-                        dolorCabeza.isSelected() ? "si" : "no",
-                        dolorCorpor.isSelected() ? "si" : "no",
-                        dificRespir.isSelected() ? "si" : "no",
-                        estornudos.isSelected() ? "si" : "no",
-                        dolorArticu.isSelected() ? "si" : "no",
-                        dolorEspalda.isSelected() ? "si" : "no"
-                );
-            }
-            case "D.DIGESTIVO" -> {
-                enfermedad = App.br.getD_Digestivo(
-                        afeccion,fiebre.isSelected() ? "si" : "no",
-                        dolorAbdomin.isSelected() ? "si" : "no",
-                        evacuConstan.isSelected() ? "si" : "no",
-                        nauseas.isSelected() ? "si" : "no",
-                        acidezEstom.isSelected() ? "si" : "no",
-                        vomito.isSelected() ? "si" : "no",
-                        fatiga.isSelected() ? "si" : "no",
-                        hemorRectal.isSelected() ? "si" : "no",
-                        diarrea.isSelected() ? "si" : "no",
-                        evacuConDolor.isSelected() ? "si" : "no",
-                        dolorPecho.isSelected() ? "si" : "no"
-                );
-            }
-            case "D.INTERNO" -> {
-                enfermedad = App.br.getD_Interno(
-                        afeccion, fiebre.isSelected() ? "si" : "no",
-                        dolorAbdomin.isSelected() ? "si" : "no",
-                        nauseas.isSelected() ? "si" : "no",
-                        vomito.isSelected() ? "si" : "no",
-                        tos.isSelected() ? "si" : "no",
-                        dolorPecho.isSelected() ? "si" : "no",
-                        acidezEstom.isSelected() ? "si" : "no",
-                        dolorEspalda.isSelected() ? "si" : "no",
-                        dificRespir.isSelected() ? "si" : "no",
-                        fatiga.isSelected() ? "si" : "no",
-                        evacuConstan.isSelected() ? "si" : "no",
-                        dolorGarganta.isSelected() ? "si" : "no",
-                        hemorRectal.isSelected() ? "si" : "no",
-                        diarrea.isSelected() ? "si" : "no"
-                );
-            }
-            case "D.URINARIO" -> {
-                enfermedad = App.br.getD_Urinario(
-                        afeccion, nauseas.isSelected() ? "si" : "no",
-                        dolorAlOrin.isSelected() ? "si" : "no",
-                        sangradoAlOrin.isSelected() ? "si" : "no",
-                        dolorEspalda.isSelected() ? "si" : "no",
-                        fiebre.isSelected() ? "si" : "no"
-                );
-            }
-            case "D.CUTANEO" -> {
-                enfermedad = App.br.getD_Cutaneo(
-                        afeccion, pielEnrogeci.isSelected() ? "si" : "no",
-                        inflamZonaPiel.isSelected() ? "si" : "no",
-                        altaSensibZona.isSelected() ? "si" : "no"
-                );
-            }
+            case "D.CABEZA" -> enfermedad = App.br.getD_Cabeza(
+                    afeccion, dolorCabeza.isSelected() ? "si" : "no",
+                    presionArtAlta.isSelected() ? "si" : "no",
+                    fiebre.isSelected() ? "si" : "no",
+                    zumbidoOidos.isSelected() ? "si" : "no",
+                    nauseas.isSelected() ? "si" : "no",
+                    dolorGarganta.isSelected() ? "si" : "no",
+                    dolorOido.isSelected() ? "si" : "no"
+            );
+            case "D.RESPIRATORIO" -> enfermedad = App.br.getD_Respiratorio(
+                    afeccion, tos.isSelected() ? "si" : "no",
+                    fiebre.isSelected() ? "si" : "no",
+                    dolorGarganta.isSelected() ? "si" : "no",
+                    dolorPecho.isSelected() ? "si" : "no",
+                    escurrNasal.isSelected() ? "si" : "no",
+                    fatiga.isSelected() ? "si" : "no",
+                    congestNasal.isSelected() ? "si" : "no",
+                    dolorCabeza.isSelected() ? "si" : "no",
+                    dolorCorpor.isSelected() ? "si" : "no",
+                    dificRespir.isSelected() ? "si" : "no",
+                    estornudos.isSelected() ? "si" : "no",
+                    dolorArticu.isSelected() ? "si" : "no",
+                    dolorEspalda.isSelected() ? "si" : "no"
+            );
+            case "D.DIGESTIVO" -> enfermedad = App.br.getD_Digestivo(
+                    afeccion,fiebre.isSelected() ? "si" : "no",
+                    dolorAbdomin.isSelected() ? "si" : "no",
+                    evacuConstan.isSelected() ? "si" : "no",
+                    nauseas.isSelected() ? "si" : "no",
+                    acidezEstom.isSelected() ? "si" : "no",
+                    vomito.isSelected() ? "si" : "no",
+                    fatiga.isSelected() ? "si" : "no",
+                    hemorRectal.isSelected() ? "si" : "no",
+                    diarrea.isSelected() ? "si" : "no",
+                    evacuConDolor.isSelected() ? "si" : "no",
+                    dolorPecho.isSelected() ? "si" : "no"
+            );
+            case "D.INTERNO" -> enfermedad = App.br.getD_Interno(
+                    afeccion, fiebre.isSelected() ? "si" : "no",
+                    dolorAbdomin.isSelected() ? "si" : "no",
+                    nauseas.isSelected() ? "si" : "no",
+                    vomito.isSelected() ? "si" : "no",
+                    tos.isSelected() ? "si" : "no",
+                    dolorPecho.isSelected() ? "si" : "no",
+                    acidezEstom.isSelected() ? "si" : "no",
+                    dolorEspalda.isSelected() ? "si" : "no",
+                    dificRespir.isSelected() ? "si" : "no",
+                    fatiga.isSelected() ? "si" : "no",
+                    evacuConstan.isSelected() ? "si" : "no",
+                    dolorGarganta.isSelected() ? "si" : "no",
+                    hemorRectal.isSelected() ? "si" : "no",
+                    diarrea.isSelected() ? "si" : "no"
+            );
+            case "D.URINARIO" -> enfermedad = App.br.getD_Urinario(
+                    afeccion, nauseas.isSelected() ? "si" : "no",
+                    dolorAlOrin.isSelected() ? "si" : "no",
+                    sangradoAlOrin.isSelected() ? "si" : "no",
+                    dolorEspalda.isSelected() ? "si" : "no",
+                    fiebre.isSelected() ? "si" : "no"
+            );
+            case "D.CUTANEO" -> enfermedad = App.br.getD_Cutaneo(
+                    afeccion, pielEnrogeci.isSelected() ? "si" : "no",
+                    inflamZonaPiel.isSelected() ? "si" : "no",
+                    altaSensibZona.isSelected() ? "si" : "no"
+            );
         }
         
         if (Objects.isNull(enfermedad)) {
@@ -248,7 +236,7 @@ public class SE2FController {
     
     @FXML
     void initialize() {
-        checkboxes = new ArrayList(Arrays.asList(
+        checkboxes = new ArrayList<>(Arrays.asList(
             dolorCabeza, presionArtAlta, fiebre, zumbidoOidos, nauseas, dolorGarganta,
             dolorOido, tos, dolorPecho, escurrNasal, fatiga, congestNasal, dolorCorpor,
             dificRespir, estornudos, dolorArticu, dolorEspalda, dolorAbdomin, evacuConstan,
