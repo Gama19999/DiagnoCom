@@ -43,7 +43,7 @@
                <padding>
                   <Insets top="-0.5" />
                </padding></Button>
-            <Label fx:id="resultado" layoutX="440.0" layoutY="219.0" prefHeight="77.0" prefWidth="287.0" style="-fx-font-family: &quot;Comic Sans MS&quot;; -fx-font-weight: bold;" text="RESULTADO" wrapText="true" />
+            <Label fx:id="resultado" layoutX="440.0" layoutY="219.0" prefHeight="77.0" prefWidth="287.0" style="-fx-font-family: &quot;Comic Sans MS&quot;; -fx-font-weight: bold; -fx-font-size: 14;" text="RESULTADO" wrapText="true" />
             <Button fx:id="reiniciar" layoutX="335.0" layoutY="461.0" mnemonicParsing="false" onAction="#reiniciarPressed" prefWidth="130.0" style="-fx-border-width: 3; -fx-border-color: #000000b1; -fx-background-color: #ffffffb1; -fx-background-radius: 15; -fx-border-radius: 15;" text="REINICIAR">
                <font>
                   <Font name="Gabriola" size="19.0" />
@@ -55,7 +55,7 @@
                <font>
                   <Font name="Tourner Regular" size="35.0" />
                </font></Label>
-            <Label fx:id="info" layoutX="440.0" layoutY="103.0" prefHeight="77.0" prefWidth="287.0" style="-fx-font-family: &quot;Comic Sans MS&quot;; -fx-font-weight: bold;" text="INFO" wrapText="true" />
+            <Label fx:id="info" layoutX="440.0" layoutY="103.0" prefHeight="77.0" prefWidth="287.0" style="-fx-font-family: &quot;Comic Sans MS&quot;; -fx-font-weight: bold; -fx-font-size: 14;" text="INFO" wrapText="true" />
             <Button fx:id="limpiarCeldas" layoutX="494.0" layoutY="461.0" mnemonicParsing="false" onAction="#limpiarCeldasPressed" prefWidth="130.0" style="-fx-border-width: 3; -fx-border-color: #000000b1; -fx-background-color: #ffffffb1; -fx-background-radius: 15; -fx-border-radius: 15;" text="LIMPIAR">
                <font>
                   <Font name="Gabriola" size="19.0" />
