@@ -65,6 +65,7 @@ public class LoginController {
                     info.setText("¡DATOS NO RECONOCIDOS!");
                     info.setVisible(true);
                 } else {
+                    App.user = Integer.parseInt(user);
                     sistemaExperto();
                 }
             } while (rs.next());

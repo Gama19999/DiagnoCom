@@ -16,6 +16,7 @@ import javafx.scene.image.Image;
 public class App extends Application {
     protected static final Stack<String> encadenamientos = new Stack<>();
     protected static final DiagnoComBR br = new DiagnoComBR();
+    protected static int user = 0;
 
     private static Scene scene;
 

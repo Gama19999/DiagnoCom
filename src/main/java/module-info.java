@@ -3,6 +3,7 @@ module sbc.diagnocom.diagnocom {
     requires javafx.fxml;
     requires java.sql;
     requires rule;
+    requires itextpdf;
 
 
     opens sbc.diagnocom to javafx.fxml;

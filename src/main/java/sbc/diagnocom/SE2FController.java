@@ -190,21 +190,27 @@ public class SE2FController {
             resultado.setText("¡Los datos no figuran con algún resultado conocido!");
             resultado.setVisible(true);
         } else {
-            resultado.setText("Dados sus sintomas, su enfermedad es: " +
-                        enfermedad + " categorizada en el: " + afeccion);
+            resultado.setText("Dados sus sintomas, su enfermedad es: " + enfermedad);
             resultado.setVisible(true);
             App.encadenamientos.push(enfermedad);
         }
     }
     
     @FXML
-    private void nextPressed() {
+    private void nextPressed() throws IOException {
         if (App.encadenamientos.size() < 2) {
-            var s = new StringBuilder("Por favor marque sus respuestas a las");
-            s.append(" preguntas y presione el boton \"RESULTADO\"");
-            
-            info.setText(s.toString());
-            info.setVisible(true);
+            if (resultado.getText().contains("no figuran")) {
+                info.setText("Verifique sus sintomas nuevamente\ny preione el boton \"RESULTADO\"");
+                info.setVisible(true);
+            } else {
+                var s = new StringBuilder("Por favor marque sus respuestas a las");
+                s.append(" preguntas y presione el boton \"RESULTADO\"");
+
+                info.setText(s.toString());
+                info.setVisible(true);
+            }
+        } else {
+            App.setRoot("finalnote", 816, 540, "NOTA FINAL");
         }
     }
     

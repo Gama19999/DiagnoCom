@@ -21,7 +21,7 @@
             <Label fx:id="fecha" alignment="CENTER" layoutX="576.0" layoutY="450.0" prefHeight="23.0" prefWidth="138.0" style="-fx-font-family: serif; -fx-font-size: 20;" text="FECHA" />
             <Label layoutX="155.0" layoutY="462.0" style="-fx-font-family: serif; -fx-font-size: 20;" text="M.C.C Martha Idalid Rivera González" />
             <Label layoutX="240.0" layoutY="308.0" style="-fx-font-family: serif; -fx-font-size: 20; -fx-font-style: italic;" text="INTEGRANTES" wrapText="true" />
-            <Label layoutX="168.0" layoutY="331.0" prefHeight="81.0" prefWidth="282.0" style="-fx-font-family: serif; -fx-font-size: 20;" text="Aguirre Sánchez Julio Alberto Rios Serrano Asis Gamaliel   Télles Peña Ricardo De Jesús" textAlignment="CENTER" wrapText="true" />
+            <Label layoutX="168.0" layoutY="331.0" prefHeight="81.0" prefWidth="282.0" style="-fx-font-family: serif; -fx-font-size: 20;" text="Julio Alberto Aguirre Sánchez Asis Gamaliel Rios Serrano  Ricardo De Jesús Télles Peña" textAlignment="CENTER" wrapText="true" />
             <Button fx:id="sistemaEx" layoutX="540.0" layoutY="253.0" mnemonicParsing="false" onAction="#switchToLogin" style="-fx-background-color: none; -fx-border-color: red; -fx-border-radius: 50; -fx-font-family: serif; -fx-font-size: 20;" text="SISTEMA EXPERTO" />
             <Button fx:id="metodo" layoutX="540.0" layoutY="339.0" mnemonicParsing="false" onAction="#switchToMethod" prefWidth="209.0" style="-fx-background-color: none; -fx-border-color: red; -fx-border-radius: 50; -fx-font-family: serif; -fx-font-size: 20;" text="MÉTODO" />
             <Label layoutX="238.0" layoutY="432.0" style="-fx-font-family: serif; -fx-font-size: 20; -fx-font-style: italic;" text="CATEDRÁTICA" wrapText="true" />
@@ -29,7 +29,7 @@
             <Label layoutX="66.0" layoutY="89.0" style="-fx-font-family: serif; -fx-font-size: 20;" text="ÁREA ACADÉMICA DE SISTEMAS COMPUTACIONALES" />
             <Label layoutX="94.0" layoutY="59.0" style="-fx-font-family: serif; -fx-font-size: 20;" text="INSTITUTO DE CIENCIAS BÁSICAS E INGENIERÍA" />
             <Label layoutX="178.0" layoutY="220.0" prefHeight="71.0" prefWidth="262.0" style="-fx-font-family: serif; -fx-font-size: 17;" text="SISTEMA EXPERTO DIAGNOSTICADOR DE ENFERMEDADES COMUNES" textAlignment="CENTER" wrapText="true" />
-            <Label layoutX="253.0" layoutY="197.0" style="-fx-font-family: serif; -fx-font-size: 20; -fx-font-style: italic;" text="PROYECTO:" />
+            <Label layoutX="258.0" layoutY="197.0" style="-fx-font-family: serif; -fx-font-size: 20; -fx-font-style: italic;" text="PROYECTO" />
             <ImageView fitHeight="107.0" fitWidth="158.0" layoutX="591.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/icbi.png" />

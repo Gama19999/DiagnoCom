@@ -2,4 +2,7 @@
 /target
 /src/test
 /.idea
+
+# Unnecesary Files
 *.iml
+*.pdf
