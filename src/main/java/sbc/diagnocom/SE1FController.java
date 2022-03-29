@@ -39,6 +39,12 @@ public class SE1FController {
     
     @FXML
     private void encadenarPressed() {
+        if (App.encadenamientos.size() == 1) {
+            info.setText("Por favor preione el boton \"SIGUIENTE\"");
+            info.setVisible(true);
+            return;
+        }
+
         String afCab, afRes, afDig, afInt, afUri, afPiel, afeccion;
         
         info.setText("");
@@ -74,7 +80,7 @@ public class SE1FController {
             return;
         }
         
-        String frame = App.encadenamientos.peek().toString();
+        String frame = App.encadenamientos.peek();
         switch (frame) {
             case "D.CABEZA" -> App.setRoot("se2Fcabeza", 816, 540, "ENFERMEDAD EN LA CABEZA");
             case "D.RESPIRATORIO" -> App.setRoot("se2Frespiratorio", 816, 540, "ENFERMEDAD RESPIRATORIA");
