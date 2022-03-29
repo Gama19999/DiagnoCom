@@ -43,10 +43,20 @@ public class RegisterController {
         Statement st;        
         userString = usuario.getText();
         passwordString = contras.getText();
+        int id_user;
         
         if (userString.isBlank() || userString.isEmpty() || passwordString.isBlank() || passwordString.isEmpty()) {
             rectangle.setVisible(true);
             info.setText("¡USUARIO O CONTRASEÑA VACIOS!");
+            info.setVisible(true);
+            return;
+        }
+
+        try { // Revisa que solo sean numeros en el usuario
+            id_user = Integer.parseInt(userString);
+        } catch (NumberFormatException n) {
+            rectangle.setVisible(true);
+            info.setText("¡USUARIO INCORRECTO!");
             info.setVisible(true);
             return;
         }
@@ -55,7 +65,7 @@ public class RegisterController {
         baseD = cnx.getCNX();
         
         StringBuilder s = new StringBuilder("insert into credencial values (");
-        s.append(Integer.valueOf(userString)).append(", '").append(passwordString);
+        s.append(id_user).append(", '").append(passwordString);
         s.append("') ");
         
         st = baseD.createStatement();

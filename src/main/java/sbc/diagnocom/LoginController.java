@@ -44,10 +44,20 @@ public class LoginController {
         ResultSet rs;
         String user = usuario.getText();
         String pswrd = contras.getText();
-        
+        int id_user;
+
         if (user.isBlank() || user.isEmpty()) {
             rectangle.setVisible(true);
             info.setText("¡USUARIO VACÍO!");
+            info.setVisible(true);
+            return;
+        }
+
+        try { // Revisa que solo sean numeros en el usuario
+            id_user = Integer.parseInt(user);
+        } catch (NumberFormatException n) {
+            rectangle.setVisible(true);
+            info.setText("¡USUARIO INCORRECTO!");
             info.setVisible(true);
             return;
         }
@@ -56,7 +66,7 @@ public class LoginController {
         baseD = con.getCNX();
         
         st = baseD.createStatement();
-        rs = st.executeQuery("select * from credencial where id_user=" +  user);
+        rs = st.executeQuery("select * from credencial where id_user=" +  id_user);
         
         if (rs.next()) {
             do {
