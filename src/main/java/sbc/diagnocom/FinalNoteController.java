@@ -1,21 +1,25 @@
 package sbc.diagnocom;
 
-import com.itextpdf.text.*;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.PageSize;
 import com.itextpdf.text.pdf.PdfWriter;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 
-import java.io.FileNotFoundException;
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class FinalNoteController {
-    private String strEnfer;
-    private String strDiagn;
-
     // Botones de accion
     @FXML
     private Button reiniciar;
@@ -39,28 +43,43 @@ public class FinalNoteController {
     }
 
     @FXML
-    private void printPDF() throws FileNotFoundException, DocumentException {
+    private void printPDF() throws IOException, DocumentException, AWTException {
         // Nombre del archivo
         var fileName = System.getProperty("user.dir") + "/impresiones/" + new SimpleDateFormat("yyyy-MM-dd-hh.mm.ss")
                 .format(new Date()) + "_" + App.user + ".pdf";
 
-        Document file = new Document(PageSize.LETTER); // Crea el archivo PDF
+        Document file = new Document(PageSize.A4.rotate(), 10, 10, 10, 10); // Crea el archivo PDF
         PdfWriter hand = PdfWriter.getInstance(file, new FileOutputStream(fileName)); // Crea el escritor del archivo
 
         file.open(); // Abre el archivo
 
-        // Objeto parrafo que contendra el texto
-        Paragraph parrafo = new Paragraph();
-        parrafo.setAlignment(Paragraph.ALIGN_JUSTIFIED);
-        parrafo.setFont(FontFactory.getFont("Varela Round Regular", 18, Font.BOLDITALIC, BaseColor.BLUE));
-        parrafo.add("DIAGNOCOM: Sistema experto diagnosticador de enfermedades comunes.\n" + "Usuario:" + App.user);
-        parrafo.add("\n\n" + strEnfer + "\n" + strDiagn);
+        // Ajustando GUI para impresion
+        reiniciar.setVisible(false);
+        printDiagno.setVisible(false);
+        salir.setVisible(false);
 
-        file.add(parrafo); // Agrega el parrafo al documento PDF
+        // Tomando screenshot de la pantalla
+        Image pic = enfermedad.getScene().snapshot(null);
+        BufferedImage screenshot = SwingFXUtils.fromFXImage(pic, null);
+        ImageIO.write(screenshot, "png", new File((System.getProperty("user.dir") + "/impresiones/" + "pic.png")));
+
+        // REinstaurando GUI
+        reiniciar.setVisible(true);
+        printDiagno.setVisible(true);
+        salir.setVisible(true);
+
+        // Obtiene la imagen y la redimensiona
+        com.itextpdf.text.Image img = com.itextpdf.text.Image.getInstance((System.getProperty("user.dir") + "/impresiones/" + "pic.png"));
+        img.setAbsolutePosition(20, 50);
+
+        file.add(img); // Agrega la imagen al PDF
+
         file.close(); // Cierra el archivo
         hand.close(); // Cierra el escritor
 
-        label.setVisible(true);
+        // Borra la screenshot
+        System.out.println(new File((System.getProperty("user.dir") + "/impresiones/" + "pic.png")).delete());
+        label.setVisible(true); // Mensaje se confirmacion de impresion
     }
 
     @FXML
@@ -72,8 +91,8 @@ public class FinalNoteController {
     void initialize() {
         label.setVisible(false);
 
-        strEnfer = "Su diagnóstico médico preliminar es: " + App.encadenamientos.pop();
-        strDiagn = "Su diagnóstico se categoriza como: " + App.encadenamientos.pop();
+        var strEnfer = "Su diagnóstico médico preliminar es: " + App.encadenamientos.pop();
+        var strDiagn = "Su diagnóstico se categoriza como: " + App.encadenamientos.pop();
 
         this.diagnostico.setText(strDiagn);
         this.enfermedad.setText(strEnfer);
