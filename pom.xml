@@ -61,6 +61,13 @@
             <scope>system</scope>
             <systemPath>${basedir}/lib/rule.jar</systemPath>
         </dependency>
+        <dependency>
+            <groupId>apriori</groupId>
+            <artifactId>apriori</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/AprioriAlgorithm.jar</systemPath>
+        </dependency>
     </dependencies>
 
     <build>

@@ -24,8 +24,8 @@ public class CoverController {
     }
     
     @FXML
-    public void switchToMethod() {
-        
+    public void switchToMethod() throws IOException {
+        App.setRoot("inteligente", 1010, 630, "Algoritmo Apriori");
     }
     
     @FXML

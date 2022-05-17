@@ -6,7 +6,7 @@ module sbc.diagnocom.diagnocom {
     requires rule;
     requires itextpdf;
     requires java.desktop;
-
+    requires AprioriAlgorithm;
 
     opens sbc.diagnocom to javafx.fxml;
     exports sbc.diagnocom;

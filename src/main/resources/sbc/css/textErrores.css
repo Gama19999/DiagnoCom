@@ -1,0 +1,35 @@
+.text-area {
+    -fx-text-fill: white;
+    -fx-font-family: "Comic Sans MS";
+    -fx-fon-size: 20;
+    -fx-font-weight: bold;
+    -fx-background-color: black;
+    -fx-opacity: 0.95;
+}
+
+.text-area .scroll-bar:vertical,
+.text-area .scroll-bar:horizontal {
+    -fx-background-color: black;
+    -fx-opacity: 0.80;
+}
+
+.text-area .corner {
+    -fx-background-color: black;
+    -fx-opacity: 0.80;
+}
+
+.text-area .content {
+    -fx-control-inner-background: black;
+    -fx-background-color: black;
+    -fx-opacity: 0.80;
+    -fx-text-fill: white;
+    -fx-font-family: "Comic Sans MS";
+    -fx-fon-size: 20;
+    -fx-font-weight: bold;
+}
+
+.text-area .scroll-pane {
+    -fx-background-color: black;
+    -fx-opacity: 0.80;
+}
+
