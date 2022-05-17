@@ -6,10 +6,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import apriori.Apriori;
 import javafx.scene.layout.Border;
 
+import java.io.IOException;
 import java.util.*;
+
+import apriori.Apriori;
 
 public class AprioriController {
     private List<Set<String>> sets;
@@ -18,6 +20,8 @@ public class AprioriController {
 
     @FXML
     private Button btnSemanal;
+    @FXML
+    private Button btnVolver;
 
     @FXML
     private TableView<ObservableList<StringProperty>> tabla;
@@ -44,8 +48,8 @@ public class AprioriController {
     }
 
     @FXML
-    private void clear() {
-
+    private void btnVolverPressed() throws IOException {
+        App.setRoot("cover", 800, 500, "DiagnoCom");
     }
 
     private void fillTable(ObservableList<ObservableList<String>> info) {
